@@ -78,6 +78,8 @@ public class Corso {
 		return Objects.hash(codins);
 	}
 
+	//GENERI AUTOMATICAMENTE EQUALS(SOLO CODICE INSEGNAMENTO) e TO STRING
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

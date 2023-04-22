@@ -13,26 +13,34 @@ import it.polito.tdp.corsi.model.Corso;
 
 public class CorsoDAO {
 	
+	//Pattern per accedere a tabella corso
+	
+	//Conveniente avere un oggetto per ogni tabella in model
 	public List<Corso> getCorsiByPeriodo(int periodo) {
+		
+		//query scritta prima in heidisql
 		
 		String sql = "SELECT * "
 				+ "FROM corso "
-				+ "WHERE pd = ?";
+				+ "WHERE pd = ?"; //variabile che posso aggiungere successivamente
 		
 		List<Corso> resultCorso = new ArrayList<>();
 		
 		
 		try {
+			//richiami col get la connessione
 			Connection conn = ConnectDB.getConnection();
 			PreparedStatement st = conn.prepareStatement(sql);
+			//hai solo un punto interrogativo, quindi unico valore 1, periodo è la variabile in entrata
 			st.setInt(1, periodo);
 			ResultSet rs = st.executeQuery();
 			
+			//rs.next va di riga in riga
 			while(rs.next()) {
 				Corso c = new Corso(rs.getString("codins"), 
 						rs.getInt("crediti"), rs.getString("nome"), 
 						rs.getInt("pd"));
-				resultCorso.add(c);
+				resultCorso.add(c);  //aggiungi alla lista
 			}
 			
 			st.close();

@@ -55,15 +55,17 @@ public class FXMLController {
     @FXML
     void corsiPerPeriodo(ActionEvent event) {
     	
-    	String input = txtPeriodo.getText();
+    	String input = txtPeriodo.getText(); //ti ricolleghi a scene
     	int inputNum = 0;
     	
+    	
+    	//FAI CONTROLLI; SARANNO FATTI ANCHE ALL'ESAME
     	try {
     		inputNum = Integer.parseInt(input);
-    	} catch (NumberFormatException e) {
+    	} catch (NumberFormatException e) { //vedi l'eccezione da info parseInt
 			// TODO: handle exception
     		txtRisultato.setText("Inserted Value is not an integer value");
-    		return;
+    		return; //return = esci
 		}
     	
     	if (inputNum < 1 || inputNum >2) {

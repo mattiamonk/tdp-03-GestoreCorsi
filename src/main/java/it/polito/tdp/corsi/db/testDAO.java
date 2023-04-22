@@ -7,6 +7,8 @@ import it.polito.tdp.corsi.model.Corso;
 
 public class testDAO {
 
+	
+	//Stampi a video i corsi ricevuti dal db
 	public static void main(String[] args) {
 
 		CorsoDAO dao = new CorsoDAO();
